@@ -52,3 +52,26 @@ The center of the object is calculated using:
 ```python
 center_x = int((x1 + x2) / 2)
 center_y = int((y1 + y2) / 2)
+
+These are image coordinates, meaning they describe where the object is located in the camera frame.
+
+## YOLO vs OpenCV Delay Comparison
+
+OpenCV detects a blue object using HSV color filtering.
+
+YOLO detects objects using a trained object detection model.
+
+In my test, OpenCV was faster because it only looks for a color range. YOLO was slower, but it is more flexible because it can recognize different object classes.
+
+## Simulated Gripper Logic
+
+The simulated gripper script compares the object center to the center of the camera frame.
+
+Example logic:
+
+```text
+Object left of center  -> move gripper left
+Object right of center -> move gripper right
+Object above center    -> move gripper up
+Object below center    -> move gripper down
+Object near center     -> ready to grip
