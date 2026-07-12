@@ -4,7 +4,7 @@ from ultralytics import YOLO
 
 
 CAMERA_INDEX = 0
-NUM_FRAMES = 100
+NUM_FRAMES = 500
 
 
 def test_opencv_latency():
